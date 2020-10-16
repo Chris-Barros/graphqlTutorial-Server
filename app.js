@@ -3,6 +3,8 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const cors = require("cors");
 
+require("dotenv").config();
+
 const schema = require("./schema/schema");
 
 const app = express();
@@ -10,7 +12,10 @@ const app = express();
 //allow cross origin requests
 app.use(cors());
 
-mongoose.connect("", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGOOSE_CONNECT, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 mongoose.connection.once("open", () => {
   console.log("connected to database");
 });
