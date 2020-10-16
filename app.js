@@ -10,10 +10,7 @@ const app = express();
 //allow cross origin requests
 app.use(cors());
 
-mongoose.connect(
-  "mongodb+srv://kris:Dorito$@cluster0.qnrzc.mongodb.net/GRAPH-QL?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose.connect("", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once("open", () => {
   console.log("connected to database");
 });
